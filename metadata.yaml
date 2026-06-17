@@ -1,5 +1,5 @@
 homepage: "https://openai.com"
 documentation: "https://developers.openai.com/ads/measurement-pixel"
 versions:
-  - sha: fbb055acc583850d4479a554f876bd4152a2a3f2
+  - sha: e64db710826bc85c99fe7ac0fd5275cdd4f7e662
     changeNotes: Initial release.
