@@ -272,6 +272,14 @@ Before submitting this fork to the GTM Community Template Gallery:
 - [Google permissions reference](https://developers.google.com/tag-platform/tag-manager/templates/permissions)
 - [Google Community Template Gallery](https://developers.google.com/tag-platform/tag-manager/templates/gallery)
 
+## Maintainer
+
+This fork is maintained by Eusebjo Muho ([github.com/eusebjo](https://github.com/eusebjo)).
+For questions, bug reports and feature requests open an issue on
+[this repository](https://github.com/eusebjo/openai-ads-pixel-gtm-template/issues).
+OpenAI does not maintain or support this template; for the Pixel itself, use
+the OpenAI Ads documentation and support channels.
+
 ## Security
 
 For vulnerabilities in the OpenAI Pixel SDK, follow OpenAI's
