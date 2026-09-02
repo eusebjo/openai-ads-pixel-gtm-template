@@ -287,7 +287,7 @@ Before submitting this fork to the GTM Community Template Gallery:
 
 ## Maintainer
 
-This fork is maintained by Eusebjo Muho ([github.com/eusebjo](https://github.com/eusebjo)).
+This fork is maintained by [eusebjo](https://github.com/eusebjo).
 For questions, bug reports and feature requests open an issue on
 [this repository](https://github.com/eusebjo/openai-ads-pixel-gtm-template/issues).
 OpenAI does not maintain or support this template; for the Pixel itself, use
