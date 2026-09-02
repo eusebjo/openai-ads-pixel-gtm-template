@@ -1,7 +1,7 @@
 homepage: "https://github.com/eusebjo"
 documentation: "https://github.com/eusebjo/openai-ads-pixel-gtm-template#readme"
 versions:
-  - sha: 8bc9cb3a42fcc137e361a6ddfc890e5e377157fa
-    changeNotes: Enhanced fork. Consent Mode integration with defer default, full user matching with in-browser hashing, dynamic contents, multi-pixel targeting, non-blocking user data validation, 25 tests.
+  - sha: b3a26b481586bce1c0340854bd0f4869e8b953a5
+    changeNotes: Enhanced fork. Clarified tag setup help text. Consent Mode integration with defer default, full user matching with in-browser hashing, dynamic contents, multi-pixel targeting, non-blocking user data validation, 25 tests.
   - sha: e64db710826bc85c99fe7ac0fd5275cdd4f7e662
     changeNotes: Initial release (upstream).
