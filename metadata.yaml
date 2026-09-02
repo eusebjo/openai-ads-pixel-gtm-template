@@ -1,5 +1,5 @@
 homepage: "https://github.com/eusebjo"
-documentation: "https://github.com/eusebjo/template-gpt-ads-pixel#readme"
+documentation: "https://github.com/eusebjo/openai-ads-pixel-gtm-template#readme"
 versions:
   - sha: 04cfd3f9845369eea823c065237d235813276145
     changeNotes: Enhanced fork. Consent Mode integration with defer default, full user matching with in-browser hashing, dynamic contents, multi-pixel targeting, non-blocking user data validation, 25 tests.
