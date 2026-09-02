@@ -10,10 +10,12 @@ This fork is not an official OpenAI release. Upstream source:
 
 What the fork adds:
 
-- Google Consent Mode integration. By default the SDK is not loaded while
-  `ad_storage` is denied, so OpenAI writes no cookie and receives no request
-  before consent; the event is sent once consent is granted. User matching data
-  follows `ad_user_data`, including a grant that arrives after the tag fired.
+- User consent always respected. While consent is denied the SDK is not loaded,
+  so OpenAI writes no cookie and receives no request. Consent is read from the
+  GTM consent state that every CMP feeds (the event is then sent once
+  `ad_storage` is granted, and user matching data once `ad_user_data` is
+  granted, even after the tag fired) or from a GTM variable for CMPs that are
+  not integrated with GTM consent.
 - All nine documented user matching fields, with optional in-browser
   normalization and SHA-256 hashing. A field that cannot be sent is skipped and
   logged in Preview; it never blocks the conversion.
@@ -37,7 +39,7 @@ which is the authority on what is actually accepted.
 | Pixel capability | Upstream template | This fork |
 | --- | --- | --- |
 | `init` with `pixelId` and `debug` | Yes | Yes, debug also automatic in GTM Preview and re-sent on repeated fires |
-| `consent` command | No | Yes, driven by Consent Mode, no-storage-before-consent default |
+| `consent` command | No | Yes, driven by the GTM consent state or a GTM variable; the SDK is never loaded while consent is denied |
 | `measure` | Yes | Yes |
 | `measureSingle` | No | Yes, automatic or forced |
 | 11 web event names | Yes | Yes |
@@ -76,7 +78,7 @@ Create one tag for every event boundary you want to measure and use the same
 Pixel ID in all tags.
 
 1. Enter the Pixel ID supplied by OpenAI Ads Manager.
-2. Keep **Respect Google Consent Mode** enabled when Consent Mode is used.
+2. Leave **Consent source** on the GTM consent state when a CMP feeds it, or select the GTM variable that reflects your CMP's choice.
 3. Enable **Send a measurement event when this tag fires**.
 4. Select an event and configure its applicable values.
 5. Attach a trigger that fires only after the real action succeeds.
@@ -158,38 +160,43 @@ ignored, and an empty or undefined variable sends the event without contents:
 
 ## Consent
 
-OpenAI documents a single consent mechanism: `oaiq("consent", false)` before
-`init`, `oaiq("consent", true)` when the user accepts. With consent `false` the
-SDK sends no measurement events and does not replay them later. There is no
-cookieless or modelled mode comparable to Google's advanced Consent Mode.
+The rule is fixed: while the user has not consented, the SDK is not loaded, so
+OpenAI writes no cookie or local storage entry, receives no request, and no
+event is sent. The **Consent source** setting only chooses where the tag reads
+consent.
 
-With **Respect Google Consent Mode** enabled, **When ad_storage is denied**
-selects one of two behaviours:
+| Consent source | How consent is read | While denied | When granted later |
+| --- | --- | --- | --- |
+| GTM consent state (default) | `ad_storage` for measurement, `ad_user_data` for user matching, as set by your CMP through GTM consent | Nothing is loaded; the tag registers a listener and reports success | The tag loads the SDK and sends its event; user matching data is sent with a targeted `init` once `ad_user_data` is granted |
+| GTM variable | A variable that resolves to `true`, `"true"` or `"granted"`; the same value gates user matching | Nothing is loaded; the tag reports success | No notification exists for variables, so fire the tag again on the CMP's consent event |
+| Not managed by this tag | Always granted | n/a | n/a |
 
-| Option | Behaviour |
-| --- | --- |
-| Do not load the SDK, send the event once consent is granted (default) | Nothing is loaded while `ad_storage` is denied: no OpenAI cookie, no local storage entry, no request. The tag registers a consent listener and sends its own event when `ad_storage` becomes granted. GTM allows one completion callback per tag, so the tag reports success as soon as it starts waiting, and a later SDK load failure is not reported. |
-| Load the SDK and set OpenAI consent to false | The documented OpenAI pattern. The SDK loads, receives `consent(false)`, writes its own `__oaiq_consent` cookie and local storage entry, and, as far as the SDK source shows, still sends a first-visit diagnostic request. Events fired while consent is denied are discarded and never replayed. |
+The GTM consent state is a Google API name, but it is the standard channel
+through which iubenda, Cookiebot, OneTrust, Usercentrics and the other CMPs
+signal consent to tags, and the only one that notifies changes. Two facts
+matter when using it:
 
-The default was chosen because the SDK offers no useful behaviour under denied
-consent: no conversions are measured and no modelling exists, while storage is
-written and a request is sent. Treating OpenAI like any vendor without a
-documented cookieless mode, nothing should run before consent.
+- GTM treats a consent type that was never set as granted. The CMP must set
+  the defaults before this tag runs, usually on the Consent Initialization
+  trigger. On a site without any consent signal the tag behaves as if consent
+  were granted.
+- GTM allows one completion callback per tag, so a waiting tag reports success
+  when it starts waiting; a later SDK load failure is not reported.
 
-Two facts that make the default safe to adopt:
+Once consent is granted the template sends `oaiq("consent", true)` once per
+page, which clears a denial the SDK may have stored on an earlier visit, and
+with the GTM consent state forwards a later revocation as
+`oaiq("consent", false)` so the SDK stops sending. That revocation command
+makes the SDK store the denial in its `__oaiq_consent` cookie and local
+storage entry.
 
-- GTM treats a consent type that was never set as granted. On a site without
-  Consent Mode both options behave identically: the SDK loads and the event is
-  sent immediately. The default only changes behaviour where a CMP has actually
-  denied `ad_storage`.
-- The CMP must set Consent Mode defaults before this tag runs; otherwise the tag
-  sees "granted" and proceeds.
-
-The template sends the `consent` command once per page and keeps it in sync
-through a single `ad_storage` listener. Configured user matching data is sent
-only when `ad_user_data` is granted: at fire time, or through a targeted
-`init({pixelId, user})` when the grant arrives later on the page. One listener
-per Pixel ID is registered by the first tag that has user data configured.
+Why the SDK is never loaded while denied: OpenAI documents a single consent
+mechanism, `oaiq("consent", false)` before `init`. With consent `false` the
+SDK measures nothing and offers no modelled or cookieless mode comparable to
+Google's advanced Consent Mode, yet it still writes its consent cookie and, as
+far as the SDK source shows, sends a first-visit diagnostic request. Loading it
+before consent therefore has costs and no benefit, and the documented image-tag
+variant of the Pixel itself says to render nothing before consent.
 
 The event-level `opt_out` option is a personalization opt-out, not a
 replacement for measurement consent.
@@ -246,7 +253,9 @@ Before publishing:
 3. Check that the loader request uses
    `https://bzrcdn.openai.com/sdk/oaiq.min.js`.
 4. Validate consent-denied and consent-granted paths separately, including a
-   grant given after the page loaded.
+   grant given after the page loaded: while denied, no request to
+   `bzrcdn.openai.com` or `bzr.openai.com` and no `__oaiq_consent` cookie may
+   appear.
 5. Confirm that no raw identifier leaves the browser: the network payload must
    contain only 64-character digests.
 6. Confirm CSP permits `https://bzrcdn.openai.com` (script and connect) and

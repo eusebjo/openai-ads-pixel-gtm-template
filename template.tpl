@@ -15,7 +15,7 @@ ___INFO___
     "displayName": "eusebjo",
     "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAABg0lEQVR42u3dQW7DMAwEQL6nyP+/15x6axMHqMmVNAF4TY0dG3Upia3H46su1rf6qC7lKvhhCMEPQwh/GEH4wwjCH0YQ/jACgBAAgQwhAAgAEMRgAQAAQBAAACgAABQAAAoAgNi6+gHQHPjKILVz8CtA1AnBJ0PUScEnQtRK4U9+53YAXQGlQ1Rq+Dv8zEiA6RDSEOqk8BMRIgDSfg9tCZD6FjJ9XXVy+AnXB2B3gFX6MlPXOQKwUvd1aYDuv25XfApqlTuqq9G2DcB/BtPZ7ex+Cir97p9oOQMYXpIEcMMizVEASXd/+lMAAEDmrggAAAAAAAAAAACvoQAAaEVoxmnGaUdbkLEgY0nSorxFedtSbMyyMcvWRAAAbE93QMMBDUeUHNJzSM8xVQe1HdQ2qsCwDsM6jKsxsMnAJiPLDO0ztE8BAKAAAFAAACgAABQAAOoVAIS58t9UUwAgDIQPIAwAQnP4vwFAaAz/LwAITeG/AoDQEP47ABA3Bv8JAIgbgv+pJzYcn/212yR+AAAAAElFTkSuQmCC"
   },
-  "description": "Community-maintained enhanced fork. Loads the OpenAI Ads Measurement Pixel SDK and sends consent-aware page view or conversion events without custom HTML, with Google Consent Mode integration and full user matching.",
+  "description": "Community-maintained enhanced fork. Loads the OpenAI Ads Measurement Pixel SDK and sends consent-aware page view or conversion events without custom HTML. Never loads the SDK while user consent is denied; full user matching with in-browser hashing.",
   "containerContexts": ["WEB"],
   "securityGroups": []
 }
@@ -59,37 +59,45 @@ ___TEMPLATE_PARAMETERS___
         "help": "Passes debug: true to the OpenAI SDK, which then logs its own activity in the browser console, also in a published container. Enabled automatically in GTM Preview/Debug mode. The template's own validation messages are visible only in GTM Preview/Debug."
       },
       {
-        "type": "CHECKBOX",
-        "name": "respectGtmConsent",
-        "checkboxText": "Respect Google Consent Mode",
-        "simpleValueType": true,
-        "defaultValue": true,
-        "help": "Recommended. Synchronizes OpenAI measurement consent with ad_storage and sends configured user matching data only when ad_user_data is granted, at tag time or as soon as it is granted later on the page. GTM treats a consent type that was never set as granted, so your CMP must set Consent Mode defaults before this tag runs; without Consent Mode the tag behaves as if consent were granted."
-      },
-      {
         "type": "SELECT",
-        "name": "consentMode",
-        "displayName": "When ad_storage is denied",
+        "name": "consentSource",
+        "displayName": "Consent source",
         "selectItems": [
           {
-            "value": "defer",
-            "displayValue": "Do not load the SDK, send the event once consent is granted (recommended)"
+            "value": "gtm",
+            "displayValue": "GTM consent state (ad_storage, ad_user_data), fed by your CMP"
           },
           {
-            "value": "signal",
-            "displayValue": "Load the SDK and set OpenAI consent to false, events are discarded"
+            "value": "variable",
+            "displayValue": "A GTM variable that resolves to true or false"
+          },
+          {
+            "value": "none",
+            "displayValue": "Not managed by this tag (no consent requirement on this site)"
           }
         ],
         "simpleValueType": true,
-        "defaultValue": "defer",
+        "defaultValue": "gtm",
+        "help": "User consent is always respected: while consent is denied the SDK is not loaded, so OpenAI writes no cookie and receives no request, and nothing is sent. This setting only chooses where the tag reads consent. GTM consent state is the channel every CMP (iubenda, Cookiebot, OneTrust, Usercentrics and others) uses to signal consent to tags; it also notifies changes, so the tag waits and sends its event once ad_storage is granted, and sends user matching data once ad_user_data is granted. A GTM variable covers a CMP that is not integrated with GTM consent: the value is read only when the tag fires, so to measure after a late acceptance fire the tag again on the CMP's consent event. Choose the last option only when the site has no consent requirement for this measurement. GTM allows one completion callback per tag, so a waiting tag reports success immediately. GTM treats a consent type that was never set as granted: with GTM consent state, your CMP must set the defaults before this tag runs."
+      },
+      {
+        "type": "TEXT",
+        "name": "consentVariable",
+        "displayName": "Consent variable",
+        "simpleValueType": true,
         "enablingConditions": [
           {
-            "paramName": "respectGtmConsent",
-            "paramValue": true,
+            "paramName": "consentSource",
+            "paramValue": "variable",
             "type": "EQUALS"
           }
         ],
-        "help": "Default: while ad_storage is denied the SDK is not loaded, so OpenAI writes no cookie and receives no request; the tag waits and sends its event once consent is granted. GTM allows one completion callback per tag, so the tag reports success as soon as it starts waiting. Alternative: the documented OpenAI pattern loads the SDK and calls oaiq(\"consent\", false); the SDK then writes its __oaiq_consent cookie and local storage entry, still sends a first-visit diagnostic request, and discards events fired while consent is denied without replaying them."
+        "valueValidators": [
+          {
+            "type": "NON_EMPTY"
+          }
+        ],
+        "help": "A GTM variable that resolves to boolean true, or to the string true or granted, when the user has consented to advertising measurement. Any other value counts as denied: the SDK is not loaded and nothing is sent. The same value gates user matching data."
       },
       {
         "type": "SELECT",
@@ -1091,21 +1099,53 @@ if (sendEvent) {
   }
 }
 
-const respectGtmConsent = data.respectGtmConsent !== false;
-const deferUntilConsent = respectGtmConsent && (data.consentMode || 'defer') === 'defer';
+// Where the tag reads the user's consent: the GTM consent state that every CMP
+// feeds, a GTM variable resolving to true or false, or nothing when the site has
+// no consent requirement. Tags saved with the earlier checkbox are mapped.
+const CONSENT_SOURCES = {gtm: true, variable: true, none: true};
+const consentSource = CONSENT_SOURCES[data.consentSource] === true ?
+  data.consentSource :
+  (data.respectGtmConsent === false ? 'none' : 'gtm');
 const pixelTargeting = data.pixelTargeting || 'auto';
 
-// Sends the current ad_storage state to the SDK once per page and keeps it in
-// sync afterwards through a single consent listener.
+const parseConsentValue = value =>
+  value === true || value === 'true' || value === 'granted' || value === 'grant';
+
+const isMeasurementConsentGranted = () => {
+  if (consentSource === 'gtm') {
+    return isConsentGranted(AD_STORAGE);
+  }
+  if (consentSource === 'variable') {
+    return parseConsentValue(data.consentVariable);
+  }
+  return true;
+};
+
+const isUserDataConsentGranted = () => {
+  if (consentSource === 'gtm') {
+    return isConsentGranted(AD_USER_DATA);
+  }
+  if (consentSource === 'variable') {
+    return parseConsentValue(data.consentVariable);
+  }
+  return true;
+};
+
+// The SDK is only ever loaded once consent is granted. The explicit consent
+// command, sent once per page, clears a denial the SDK may have stored on an
+// earlier visit; with the GTM consent state a single listener then forwards a
+// later revocation so the SDK stops sending.
 const syncConsentSignal = () => {
-  if (!respectGtmConsent || templateStorage.getItem(CONSENT_SYNCED_KEY)) {
+  if (consentSource === 'none' || templateStorage.getItem(CONSENT_SYNCED_KEY)) {
     return;
   }
   templateStorage.setItem(CONSENT_SYNCED_KEY, true);
-  callOaiq('consent', isConsentGranted(AD_STORAGE));
-  addConsentListener(AD_STORAGE, (consentType, granted) => {
-    callOaiq('consent', granted);
-  });
+  callOaiq('consent', true);
+  if (consentSource === 'gtm') {
+    addConsentListener(AD_STORAGE, (consentType, granted) => {
+      callOaiq('consent', granted);
+    });
+  }
 };
 
 const buildInitConfig = user => {
@@ -1140,7 +1180,8 @@ const initializePixel = user => {
 // grant and then sends the configured user data with a targeted init.
 const sendUserDataOnConsent = () => {
   const listenerKey = USER_LISTENER_KEY_PREFIX + pixelId;
-  if (!hasConfiguredUserData() || templateStorage.getItem(listenerKey)) {
+  if (consentSource !== 'gtm' || !hasConfiguredUserData() ||
+      templateStorage.getItem(listenerKey)) {
     return;
   }
   templateStorage.setItem(listenerKey, true);
@@ -1178,7 +1219,7 @@ const dispatch = user => {
 };
 
 const execute = () => {
-  if (respectGtmConsent && !isConsentGranted(AD_USER_DATA)) {
+  if (!isUserDataConsentGranted()) {
     dispatch({});
     sendUserDataOnConsent();
     return;
@@ -1186,12 +1227,14 @@ const execute = () => {
   buildUserObject(dispatch);
 };
 
-// Default mode: while ad_storage is denied the SDK stays off the page, so OpenAI
-// writes no cookie and receives no request. The event is replayed once consent
-// is granted, which the SDK does not do on its own. GTM allows a single
-// completion callback per tag, so the tag reports success when it starts waiting.
-if (deferUntilConsent && !isConsentGranted(AD_STORAGE)) {
-  log('Consent for ' + AD_STORAGE + ' is denied, deferring the SDK load and the event.');
+// While consent is denied the SDK stays off the page, so OpenAI writes no cookie
+// and receives no request. With the GTM consent state the event is replayed once
+// consent is granted, which the SDK does not do on its own. GTM allows a single
+// completion callback per tag, so a waiting tag reports success immediately.
+if (isMeasurementConsentGranted()) {
+  execute();
+} else if (consentSource === 'gtm') {
+  log('Consent for ' + AD_STORAGE + ' is denied, waiting before loading the SDK and sending the event.');
   let replayed = false;
   addConsentListener(AD_STORAGE, (consentType, granted) => {
     if (granted && !replayed) {
@@ -1201,7 +1244,8 @@ if (deferUntilConsent && !isConsentGranted(AD_STORAGE)) {
   });
   finish(true);
 } else {
-  execute();
+  log('Consent variable is not true, the SDK is not loaded and nothing is sent.');
+  finish(true);
 }
 
 ___WEB_PERMISSIONS___
@@ -1688,7 +1732,66 @@ scenarios:
     assertThat(queued[2][0]).isEqualTo('measure');
     assertThat(queued[2][1]).isEqualTo('lead_created');
     assertApi('injectScript').wasCalled();
-- name: signal mode loads the sdk and syncs denied consent
+- name: forwards a later ad_storage revocation to the sdk
+  code: |-
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'lead_created',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    assertThat(queued).hasLength(3);
+    assertThat(queued[0][0]).isEqualTo('consent');
+    assertThat(queued[0][1]).isEqualTo(true);
+
+    consentState.ad_storage = false;
+    const listeners = consentListeners.ad_storage;
+    for (let i = 0; i < listeners.length; i += 1) {
+      listeners[i]('ad_storage', false);
+    }
+
+    assertThat(queued).hasLength(4);
+    assertThat(queued[3][0]).isEqualTo('consent');
+    assertThat(queued[3][1]).isEqualTo(false);
+- name: does nothing when the consent variable is not true
+  code: |-
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'lead_created',
+      consentSource: 'variable',
+      consentVariable: false,
+      emailSha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'lead_created',
+      consentSource: 'variable',
+      consentVariable: 'denied',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'lead_created',
+      consentSource: 'variable',
+      consentVariable: undefined,
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    assertThat(queued).hasLength(0);
+    assertApi('injectScript').wasNotCalled();
+    assertApi('addConsentListener').wasNotCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+    assertApi('gtmOnSuccess').wasCalled();
+- name: sends everything when the consent variable is true
   code: |-
     consentState.ad_storage = false;
     consentState.ad_user_data = false;
@@ -1697,8 +1800,8 @@ scenarios:
       pixelId: 'px_123',
       sendEvent: true,
       eventName: 'lead_created',
-      respectGtmConsent: true,
-      consentMode: 'signal',
+      consentSource: 'variable',
+      consentVariable: 'true',
       emailSha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
@@ -1706,17 +1809,41 @@ scenarios:
 
     assertThat(queued).hasLength(3);
     assertThat(queued[0][0]).isEqualTo('consent');
-    assertThat(queued[0][1]).isEqualTo(false);
-    assertThat(queued[1][0]).isEqualTo('init');
-    assertThat(queued[1][1]).isEqualTo({pixelId: 'px_123'});
+    assertThat(queued[0][1]).isEqualTo(true);
+    assertThat(queued[1][1]).isEqualTo({
+      pixelId: 'px_123',
+      user: {email_sha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
+    });
     assertThat(queued[2][0]).isEqualTo('measure');
+    assertApi('isConsentGranted').wasNotCalled();
+    assertApi('addConsentListener').wasNotCalled();
     assertApi('injectScript').wasCalled();
+- name: sends no consent command when consent is not managed by the tag
+  code: |-
+    consentState.ad_storage = false;
 
-    grant('ad_storage');
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'page_viewed',
+      consentSource: 'none',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+    runCode({
+      pixelId: 'px_456',
+      sendEvent: false,
+      respectGtmConsent: false,
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
 
-    assertThat(queued).hasLength(4);
-    assertThat(queued[3][0]).isEqualTo('consent');
-    assertThat(queued[3][1]).isEqualTo(true);
+    assertThat(queued).hasLength(3);
+    assertThat(queued[0][0]).isEqualTo('init');
+    assertThat(queued[1][0]).isEqualTo('measure');
+    assertThat(queued[2][0]).isEqualTo('init');
+    assertApi('isConsentGranted').wasNotCalled();
+    assertApi('addConsentListener').wasNotCalled();
 - name: sends user data once when ad_user_data is granted later
   code: |-
     consentState.ad_user_data = false;
@@ -2142,5 +2269,5 @@ setup: |-
 
 ___NOTES___
 
-Enhanced community fork of the OpenAI Ads Measurement Pixel GTM template. Adds Google Consent Mode integration with a no-storage-before-consent default, every documented user matching field with optional in-browser normalization and SHA-256 hashing, dynamic contents variables, explicit multi-pixel targeting, one initialization per Pixel ID per page, non-blocking user data validation, and an expanded test suite.
+Enhanced community fork of the OpenAI Ads Measurement Pixel GTM template. Respects user consent from the GTM consent state or a GTM variable and never loads the SDK while consent is denied, adds every documented user matching field with optional in-browser normalization and SHA-256 hashing, dynamic contents variables, explicit multi-pixel targeting, one initialization per Pixel ID per page, non-blocking user data validation, and an expanded test suite.
 
