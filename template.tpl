@@ -6,16 +6,16 @@ ___INFO___
 
 {
   "type": "TAG",
-  "id": "cvt_openai_ads_pixel",
+  "id": "cvt_eusebjo_openai_ads_pixel",
   "version": 1,
   "categories": ["ADVERTISING", "CONVERSIONS"],
   "displayName": "OpenAI Ads Measurement Pixel (Enhanced)",
   "brand": {
-    "id": "openai",
-    "displayName": "OpenAI",
-    "thumbnail": "data:image/png;base64,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"
+    "id": "eusebjo",
+    "displayName": "eusebjo",
+    "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAABg0lEQVR42u3dQW7DMAwEQL6nyP+/15x6axMHqMmVNAF4TY0dG3Upia3H46su1rf6qC7lKvhhCMEPQwh/GEH4wwjCH0YQ/jACgBAAgQwhAAgAEMRgAQAAQBAAACgAABQAAAoAgNi6+gHQHPjKILVz8CtA1AnBJ0PUScEnQtRK4U9+53YAXQGlQ1Rq+Dv8zEiA6RDSEOqk8BMRIgDSfg9tCZD6FjJ9XXVy+AnXB2B3gFX6MlPXOQKwUvd1aYDuv25XfApqlTuqq9G2DcB/BtPZ7ex+Cir97p9oOQMYXpIEcMMizVEASXd/+lMAAEDmrggAAAAAAAAAAACvoQAAaEVoxmnGaUdbkLEgY0nSorxFedtSbMyyMcvWRAAAbE93QMMBDUeUHNJzSM8xVQe1HdQ2qsCwDsM6jKsxsMnAJiPLDO0ztE8BAKAAAFAAACgAABQAAOoVAIS58t9UUwAgDIQPIAwAQnP4vwFAaAz/LwAITeG/AoDQEP47ABA3Bv8JAIgbgv+pJzYcn/212yR+AAAAAElFTkSuQmCC"
   },
-  "description": "Loads the OpenAI Ads Measurement Pixel SDK and sends consent-aware page view or conversion events without custom HTML.",
+  "description": "Community-maintained enhanced fork. Loads the OpenAI Ads Measurement Pixel SDK and sends consent-aware page view or conversion events without custom HTML, with Google Consent Mode integration and full user matching.",
   "containerContexts": ["WEB"],
   "securityGroups": []
 }
@@ -56,7 +56,7 @@ ___TEMPLATE_PARAMETERS___
         "checkboxText": "Enable setup diagnostics in the browser console",
         "simpleValueType": true,
         "defaultValue": false,
-        "help": "Use when support asks for diagnostics in a published container. Debug is enabled automatically in GTM Preview/Debug mode."
+        "help": "Passes debug: true to the OpenAI SDK, which then logs its own activity in the browser console, also in a published container. Enabled automatically in GTM Preview/Debug mode. The template's own validation messages are visible only in GTM Preview/Debug."
       },
       {
         "type": "CHECKBOX",
@@ -64,7 +64,7 @@ ___TEMPLATE_PARAMETERS___
         "checkboxText": "Respect Google Consent Mode",
         "simpleValueType": true,
         "defaultValue": true,
-        "help": "Recommended. Synchronizes OpenAI measurement consent with ad_storage and only sends configured user matching data when ad_user_data is granted. Your CMP must set Consent Mode defaults before this tag runs."
+        "help": "Recommended. Synchronizes OpenAI measurement consent with ad_storage and sends configured user matching data only when ad_user_data is granted, at tag time or as soon as it is granted later on the page. GTM treats a consent type that was never set as granted, so your CMP must set Consent Mode defaults before this tag runs; without Consent Mode the tag behaves as if consent were granted."
       },
       {
         "type": "SELECT",
@@ -72,16 +72,16 @@ ___TEMPLATE_PARAMETERS___
         "displayName": "When ad_storage is denied",
         "selectItems": [
           {
-            "value": "signal",
-            "displayValue": "Load the SDK and set OpenAI consent to false"
+            "value": "defer",
+            "displayValue": "Do not load the SDK, send the event once consent is granted (recommended)"
           },
           {
-            "value": "defer",
-            "displayValue": "Do not load the SDK, then send the event once consent is granted"
+            "value": "signal",
+            "displayValue": "Load the SDK and set OpenAI consent to false, events are discarded"
           }
         ],
         "simpleValueType": true,
-        "defaultValue": "signal",
+        "defaultValue": "defer",
         "enablingConditions": [
           {
             "paramName": "respectGtmConsent",
@@ -89,7 +89,7 @@ ___TEMPLATE_PARAMETERS___
             "type": "EQUALS"
           }
         ],
-        "help": "The Pixel writes an __oaiq_consent cookie and a local storage entry as soon as it loads, even when consent is false. Choose the second option on sites that must write no vendor storage before consent. It also replays the event when the user later grants consent, which the SDK does not do on its own."
+        "help": "Default: while ad_storage is denied the SDK is not loaded, so OpenAI writes no cookie and receives no request; the tag waits and sends its event once consent is granted. GTM allows one completion callback per tag, so the tag reports success as soon as it starts waiting. Alternative: the documented OpenAI pattern loads the SDK and calls oaiq(\"consent\", false); the SDK then writes its __oaiq_consent cookie and local storage entry, still sends a first-visit diagnostic request, and discards events fired while consent is denied without replaying them."
       },
       {
         "type": "SELECT",
@@ -98,7 +98,7 @@ ___TEMPLATE_PARAMETERS___
         "selectItems": [
           {
             "value": "auto",
-            "displayValue": "Automatic (this Pixel ID only when the page runs more than one)"
+            "displayValue": "Automatic (this Pixel ID only when this template runs more than one)"
           },
           {
             "value": "single",
@@ -118,7 +118,7 @@ ___TEMPLATE_PARAMETERS___
             "type": "EQUALS"
           }
         ],
-        "help": "measure sends to every Pixel ID initialized so far. measureSingle sends only to the Pixel ID configured in this tag. Automatic keeps a single-pixel page on measure and switches to measureSingle once this template has initialized more than one Pixel ID."
+        "help": "measure sends to every Pixel ID initialized on the page so far, including pixels initialized outside GTM. measureSingle sends only to the Pixel ID configured in this tag. Automatic uses measure while this template has initialized a single Pixel ID and switches to measureSingle once it has initialized more than one; pixels initialized outside this template are not counted, so choose the second option when the page also runs a hardcoded pixel of another advertiser."
       }
     ]
   },
@@ -207,7 +207,7 @@ ___TEMPLATE_PARAMETERS___
             "type": "EQUALS"
           }
         ],
-        "help": "Required only for Custom event. Use a stable lowercase name such as check_availability."
+        "help": "Required only for Custom event. Must be the custom event name registered in Ads Manager, which accepts only lowercase names, so the value is lowercased before it is sent. Rules: 1 to 64 characters, letters, numbers, underscores or hyphens, starting and ending with a letter or number, and not a standard event name. Keep it identical on any server-side Conversions API call for deduplication."
       },
       {
         "type": "TEXT",
@@ -397,7 +397,7 @@ ___TEMPLATE_PARAMETERS___
                 "type": "NON_EMPTY"
               }
             ],
-            "help": "Select a GTM variable that resolves to an array. Supported item keys are id, name, content_type, quantity, amount, and currency."
+            "help": "Select a GTM variable that resolves to an array of objects. Supported item keys are id, name, content_type, quantity, amount, and currency; other keys are ignored. An empty or undefined variable sends the event without contents."
           }
         ]
       }
@@ -415,7 +415,7 @@ ___TEMPLATE_PARAMETERS___
         "checkboxText": "Normalize and SHA-256 hash raw identifiers in the browser",
         "simpleValueType": true,
         "defaultValue": true,
-        "help": "Recommended. A value that is already a 64-character hexadecimal digest is sent unchanged. Any other value is normalized following the OpenAI rules and hashed with the browser Web Crypto API before it leaves the page, so no raw identifier is ever sent. Clear this box to reject anything that is not already hashed."
+        "help": "Recommended. A value that is already a 64-character hexadecimal digest is passed through in lowercase. Any other value is normalized following the OpenAI rules and hashed with the browser Web Crypto API before it is handed to the SDK, so no raw identifier enters the page-global oaiq queue. Clear this box to skip any identifier that is not already hashed; the event is still sent. A field that cannot be normalized is skipped and logged in GTM Preview, never blocking the conversion."
       },
       {
         "type": "TEXT",
@@ -502,8 +502,9 @@ const templateStorage = require('templateStorage');
 
 const SDK_URL = 'https://bzrcdn.openai.com/sdk/oaiq.min.js';
 const CACHE_TOKEN = 'openai_ads_pixel_sdk';
-const CONSENT_LISTENER_KEY = 'openai_ads_consent_listener_registered';
+const CONSENT_SYNCED_KEY = 'openai_ads_consent_synced';
 const INITIALIZED_PIXELS_KEY = 'openai_ads_initialized_pixel_ids';
+const USER_LISTENER_KEY_PREFIX = 'openai_ads_user_listener_';
 const LOG_PREFIX = '[OpenAI Ads Measurement Pixel] ';
 const AD_STORAGE = 'ad_storage';
 const AD_USER_DATA = 'ad_user_data';
@@ -528,8 +529,9 @@ const EVENT_DATA_TYPES = {
   trial_started: 'plan_enrollment'
 };
 
-// app_installed and app_opened are Conversions API only, but they stay reserved
-// standard names and must not be reused as a custom event name.
+// Template policy: every standard event name documented by OpenAI Ads, including
+// the two Conversions API only events, is reserved and cannot be reused as a
+// custom event name. The SDK itself only reserves the eleven web event names.
 const RESERVED_EVENT_NAMES = {
   app_installed: true,
   app_opened: true,
@@ -548,9 +550,15 @@ const RESERVED_EVENT_NAMES = {
 
 const LOWERCASE_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
 const UPPERCASE_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const DIGIT_CHARACTERS = '0123456789';
+const LETTERS = LOWERCASE_LETTERS + UPPERCASE_LETTERS;
+const DIGITS = '0123456789';
+const ALPHANUMERIC = LETTERS + DIGITS;
+const LOWER_ALPHANUMERIC = LOWERCASE_LETTERS + DIGITS;
 const HEX_CHARACTERS = '0123456789abcdef';
-const WHITESPACE_CHARACTERS = ' \t\n\r\f';
+// ASCII whitespace plus the Unicode spaces that JavaScript's \s matches, so a
+// name pasted with a non-breaking space hashes like a server-side normalizer.
+const WHITESPACE_CHARACTERS = ' \t\n\r\f\u000B\u00A0\u1680\u2000\u2001\u2002\u2003' +
+  '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF';
 const ASCII_PUNCTUATION = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
 const log = message => {
@@ -560,12 +568,40 @@ const log = message => {
 };
 
 const hasValue = value => value !== undefined && value !== null && value !== '';
-const isLowercaseLetter = character => LOWERCASE_LETTERS.indexOf(character) >= 0;
-const isAsciiLetter = character =>
-  isLowercaseLetter(character) || UPPERCASE_LETTERS.indexOf(character) >= 0;
-const isAsciiDigit = character => DIGIT_CHARACTERS.indexOf(character) >= 0;
-const isAlphaNumeric = character => isAsciiLetter(character) || isAsciiDigit(character);
-const isLowerAlphaNumeric = character => isLowercaseLetter(character) || isAsciiDigit(character);
+
+// True when every character of text belongs to alphabet.
+const onlyChars = (text, alphabet) => {
+  for (let i = 0; i < text.length; i += 1) {
+    if (alphabet.indexOf(text.charAt(i)) < 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+// Returns text with every character outside alphabet removed.
+const keepChars = (text, alphabet) => {
+  let kept = '';
+  for (let i = 0; i < text.length; i += 1) {
+    const character = text.charAt(i);
+    if (alphabet.indexOf(character) >= 0) {
+      kept += character;
+    }
+  }
+  return kept;
+};
+
+// Returns text with every character of alphabet removed.
+const dropChars = (text, alphabet) => {
+  let kept = '';
+  for (let i = 0; i < text.length; i += 1) {
+    const character = text.charAt(i);
+    if (alphabet.indexOf(character) < 0) {
+      kept += character;
+    }
+  }
+  return kept;
+};
 
 const isOptOutLike = value =>
   !hasValue(value) || value === 'omit' || value === true || value === false ||
@@ -585,35 +621,23 @@ const isContentsCapableType = dataType =>
   dataType === 'contents' || dataType === 'custom' || dataType === 'plan_enrollment';
 const isPlanCapableType = dataType => dataType === 'custom' || dataType === 'plan_enrollment';
 
+// The SDK accepts /^[A-Za-z]{3}$/ for currency codes.
 const isCurrencyLike = value => {
   if (!hasValue(value)) {
     return true;
   }
   const text = makeString(value);
-  return text.length === 3 &&
-    isAsciiLetter(text.charAt(0)) &&
-    isAsciiLetter(text.charAt(1)) &&
-    isAsciiLetter(text.charAt(2));
+  return text.length === 3 && onlyChars(text, LETTERS);
 };
 
 const isIntegerLike = value => {
   if (!hasValue(value)) {
     return true;
   }
-  const text = makeString(value);
-  if (text.length === 0) {
-    return true;
-  }
-  for (let i = 0; i < text.length; i += 1) {
-    if (!isAsciiDigit(text.charAt(i))) {
-      return false;
-    }
-  }
-  return true;
+  return onlyChars(makeString(value), DIGITS);
 };
 
-// The SDK matches /^[0-9a-f]{64}$/i and lowercases the digest, so accept an
-// uppercase hash instead of rejecting the whole configuration.
+// The SDK accepts /^[0-9a-f]{64}$/i and lowercases the digest.
 const toSha256Hex = value => {
   if (!hasValue(value)) {
     return null;
@@ -623,64 +647,26 @@ const toSha256Hex = value => {
     return null;
   }
   const lowered = text.toLowerCase();
-  for (let i = 0; i < lowered.length; i += 1) {
-    if (HEX_CHARACTERS.indexOf(lowered.charAt(i)) < 0) {
-      return null;
-    }
-  }
-  return lowered;
+  return onlyChars(lowered, HEX_CHARACTERS) ? lowered : null;
 };
 
-// The SDK enforces /^[a-z0-9](?:[a-z0-9_-]{0,62}[a-z0-9])?$/ and drops events
-// whose custom_event_name does not match, so uppercase names must fail here.
-const isCustomEventNameLike = value => {
-  if (!hasValue(value)) {
-    return false;
-  }
-  const text = makeString(value);
-  if (text.length < 1 || text.length > 64 || RESERVED_EVENT_NAMES[text] === true) {
-    return false;
-  }
-  if (!isLowerAlphaNumeric(text.charAt(0)) ||
-      !isLowerAlphaNumeric(text.charAt(text.length - 1))) {
-    return false;
-  }
-  for (let i = 0; i < text.length; i += 1) {
-    const character = text.charAt(i);
-    if (!isLowerAlphaNumeric(character) && character !== '_' && character !== '-') {
-      return false;
-    }
-  }
-  return true;
-};
+// Ads Manager only registers lowercase custom event names, so the template
+// lowercases the configured value before validating and sending it. The
+// documented rules are then: 1-64 characters, letters, numbers, underscores or
+// hyphens, alphanumeric first and last character, not a standard event name.
+const normalizeCustomEventName = value => makeString(value).trim().toLowerCase();
 
-const isCountryLike = value => {
-  if (!hasValue(value)) {
-    return true;
-  }
-  const text = makeString(value);
-  return text.length === 2 && isAsciiLetter(text.charAt(0)) && isAsciiLetter(text.charAt(1));
-};
+const isCustomEventNameLike = text =>
+  text.length >= 1 &&
+  text.length <= 64 &&
+  RESERVED_EVENT_NAMES[text] !== true &&
+  onlyChars(text, LOWER_ALPHANUMERIC + '_-') &&
+  LOWER_ALPHANUMERIC.indexOf(text.charAt(0)) >= 0 &&
+  LOWER_ALPHANUMERIC.indexOf(text.charAt(text.length - 1)) >= 0;
 
-const isWithinLength = (value, maximum) =>
-  !hasValue(value) || makeString(value).length <= maximum;
+const isCountryLike = text => text.length === 2 && onlyChars(text, LETTERS);
 
-const isPostalCodeLike = value => {
-  if (!hasValue(value)) {
-    return true;
-  }
-  const text = makeString(value);
-  if (text.length > 32) {
-    return false;
-  }
-  for (let i = 0; i < text.length; i += 1) {
-    const character = text.charAt(i);
-    if (!isAlphaNumeric(character) && character !== ' ' && character !== '-') {
-      return false;
-    }
-  }
-  return true;
-};
+const isPostalCodeLike = text => text.length <= 32 && onlyChars(text, ALPHANUMERIC + ' -');
 
 // Normalization rules from the "Normalize identifiers before hashing" section of
 // https://developers.openai.com/ads/measurement-pixel
@@ -688,31 +674,11 @@ const normalizeEmail = value => makeString(value).trim().toLowerCase();
 
 const normalizeExternalId = value => makeString(value).trim();
 
-const normalizeName = value => {
-  const text = makeString(value).toLowerCase();
-  let normalized = '';
-  for (let i = 0; i < text.length; i += 1) {
-    const character = text.charAt(i);
-    if (WHITESPACE_CHARACTERS.indexOf(character) >= 0) {
-      continue;
-    }
-    if (ASCII_PUNCTUATION.indexOf(character) >= 0) {
-      continue;
-    }
-    normalized += character;
-  }
-  return normalized;
-};
+const normalizeName = value =>
+  dropChars(makeString(value).toLowerCase(), WHITESPACE_CHARACTERS + ASCII_PUNCTUATION);
 
 const normalizePhone = value => {
-  const text = makeString(value);
-  let digits = '';
-  for (let i = 0; i < text.length; i += 1) {
-    const character = text.charAt(i);
-    if (isAsciiDigit(character)) {
-      digits += character;
-    }
-  }
+  const digits = keepChars(makeString(value), DIGITS);
   let start = 0;
   while (start < digits.length && digits.charAt(start) === '0') {
     start += 1;
@@ -763,7 +729,31 @@ const HASHED_USER_FIELDS = [
   }
 ];
 
+// Tags created with the upstream template stored the postal code as zipCode.
+const configuredPostalCode = hasValue(data.postalCode) ? data.postalCode : data.zipCode;
+
+const LOCATION_USER_FIELDS = [
+  {key: 'country', label: 'Country', raw: data.country, maximumLength: 2},
+  {key: 'city', label: 'City', raw: data.city, maximumLength: 128},
+  {key: 'region', label: 'Region', raw: data.region, maximumLength: 128},
+  {key: 'postal_code', label: 'Postal code', raw: configuredPostalCode, maximumLength: 32}
+];
+
 const hashRawUserData = data.hashUserData !== false;
+
+const hasConfiguredUserData = () => {
+  for (let i = 0; i < HASHED_USER_FIELDS.length; i += 1) {
+    if (hasValue(HASHED_USER_FIELDS[i].raw)) {
+      return true;
+    }
+  }
+  for (let i = 0; i < LOCATION_USER_FIELDS.length; i += 1) {
+    if (hasValue(LOCATION_USER_FIELDS[i].raw)) {
+      return true;
+    }
+  }
+  return false;
+};
 
 const addString = (target, key, value) => {
   if (hasValue(value)) {
@@ -823,6 +813,9 @@ const fail = message => {
   finish(false);
 };
 
+// Forwards a command to window.oaiq with the exact number of arguments given,
+// through callInWindow when the global exists and through a new arguments queue
+// otherwise. The sandbox has no apply or rest arguments, hence the ladder.
 const callOaiq = (command, arg1, arg2, arg3, arg4) => {
   if (copyFromWindow('oaiq')) {
     if (arg4 !== undefined) {
@@ -853,8 +846,9 @@ const callOaiq = (command, arg1, arg2, arg3, arg4) => {
   }
 };
 
-// Splits the configured identifiers into digests that are ready to send and raw
-// values that still need an in-browser SHA-256 pass.
+// Builds the user object. Matching data is optional, so a field that cannot be
+// sent is dropped with a debug log instead of failing the conversion. Returns
+// digests that are ready to send and raw values that still need SHA-256.
 const planUserData = () => {
   const user = {};
   const pending = [];
@@ -869,13 +863,36 @@ const planUserData = () => {
       user[field.key] = digest;
       continue;
     }
-    pending.push({key: field.key, value: field.normalize(field.raw)});
+    if (!hashRawUserData) {
+      log(field.label + ' is not a SHA-256 digest and in-browser hashing is off, skipping it.');
+      continue;
+    }
+    const normalized = field.normalize(field.raw);
+    if (normalized.length < field.minimumLength || normalized.length > field.maximumLength) {
+      log(field.label + ' could not be normalized into a value the Pixel accepts, skipping it.');
+      continue;
+    }
+    pending.push({key: field.key, value: normalized});
   }
 
-  addString(user, 'country', data.country);
-  addString(user, 'city', data.city);
-  addString(user, 'region', data.region);
-  addString(user, 'postal_code', data.postalCode);
+  for (let i = 0; i < LOCATION_USER_FIELDS.length; i += 1) {
+    const field = LOCATION_USER_FIELDS[i];
+    if (!hasValue(field.raw)) {
+      continue;
+    }
+    const text = makeString(field.raw).trim();
+    let accepted = text.length > 0 && text.length <= field.maximumLength;
+    if (field.key === 'country') {
+      accepted = isCountryLike(text);
+    } else if (field.key === 'postal_code') {
+      accepted = accepted && isPostalCodeLike(text);
+    }
+    if (!accepted) {
+      log(field.label + ' is not a value the Pixel accepts, skipping it.');
+      continue;
+    }
+    user[field.key] = text;
+  }
 
   return {user: user, pending: pending};
 };
@@ -896,7 +913,6 @@ const resolveUserData = (plan, callback) => {
         hashNext(index + 1);
       },
       () => {
-        // Matching is optional, so drop the identifier instead of the conversion.
         log('SHA-256 is unavailable in this browser, skipping ' + item.key + '.');
         hashNext(index + 1);
       },
@@ -907,31 +923,24 @@ const resolveUserData = (plan, callback) => {
   hashNext(0);
 };
 
-const buildInitConfig = user => {
-  const initConfig = {
-    pixelId: makeString(data.pixelId)
-  };
-
-  if (debugEnabled) {
-    initConfig.debug = true;
+const buildUserObject = callback => {
+  const plan = planUserData();
+  if (plan.pending.length === 0) {
+    callback(plan.user);
+    return;
   }
-
-  if (hasKeys(user)) {
-    initConfig.user = user;
-  }
-
-  return initConfig;
+  resolveUserData(plan, callback);
 };
 
 const getContentsRows = () => {
   if (data.contentsSource === 'variable') {
-    return data.dynamicContents;
+    return hasValue(data.dynamicContents) ? data.dynamicContents : [];
   }
   return data.contents || [];
 };
 
 const buildContents = () => {
-  const rows = getContentsRows() || [];
+  const rows = getContentsRows();
   const contents = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -978,12 +987,12 @@ const buildEventProps = eventName => {
   return eventProps;
 };
 
-const buildEventOptions = eventName => {
+const buildEventOptions = (eventName, customEventName) => {
   const eventOptions = {};
   addString(eventOptions, 'event_id', data.eventId);
 
   if (eventName === 'custom') {
-    addString(eventOptions, 'custom_event_name', data.customEventName);
+    eventOptions.custom_event_name = customEventName;
   }
 
   const optOut = parseOptOut(data.optOut);
@@ -994,47 +1003,14 @@ const buildEventOptions = eventName => {
   return eventOptions;
 };
 
-const validateUserConfig = () => {
-  for (let i = 0; i < HASHED_USER_FIELDS.length; i += 1) {
-    const field = HASHED_USER_FIELDS[i];
-    if (!hasValue(field.raw)) {
-      continue;
-    }
-    if (toSha256Hex(field.raw)) {
-      continue;
-    }
-    if (!hashRawUserData) {
-      return field.label +
-        ' must be a 64-character hexadecimal SHA-256 hash, or turn on in-browser hashing.';
-    }
-    const normalized = field.normalize(field.raw);
-    if (normalized.length < field.minimumLength || normalized.length > field.maximumLength) {
-      return field.label + ' could not be normalized into a value the Pixel accepts.';
-    }
-  }
-  if (!isCountryLike(data.country)) {
-    return 'Country must be a 2-letter ISO 3166-1 code.';
-  }
-  if (!isWithinLength(data.city, 128)) {
-    return 'City must be 128 characters or fewer.';
-  }
-  if (!isWithinLength(data.region, 128)) {
-    return 'Region must be 128 characters or fewer.';
-  }
-  if (!isPostalCodeLike(data.postalCode)) {
-    return 'Postal code must be 32 characters or fewer and contain only letters, numbers, spaces, or hyphens.';
-  }
-  return null;
-};
-
-const validateEventConfig = eventName => {
+const validateEventConfig = (eventName, customEventName) => {
   const dataType = EVENT_DATA_TYPES[eventName];
   if (!dataType) {
     return 'Choose a documented OpenAI Ads event name.';
   }
 
-  if (eventName === 'custom' && !isCustomEventNameLike(data.customEventName)) {
-    return 'Custom event name must be 1-64 lowercase characters, use letters, numbers, underscores, or hyphens, start and end with a letter or number, and not match a standard event.';
+  if (eventName === 'custom' && !isCustomEventNameLike(customEventName)) {
+    return 'Custom event name must be 1-64 characters, use letters, numbers, underscores, or hyphens, start and end with a letter or number, and not match a standard event.';
   }
 
   if (!isOptOutLike(data.optOut)) {
@@ -1059,10 +1035,13 @@ const validateEventConfig = eventName => {
 
   const rows = getContentsRows();
   if (getType(rows) !== 'array') {
-    return 'Contents must resolve to an array.';
+    return 'Contents must resolve to an array, or be empty.';
   }
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
+    if (row === undefined || row === null) {
+      continue;
+    }
     if (getType(row) !== 'object') {
       return 'Each Contents item must be an object.';
     }
@@ -1086,16 +1065,26 @@ const validateEventConfig = eventName => {
   return null;
 };
 
-const userValidationError = validateUserConfig();
-if (userValidationError) {
-  fail(userValidationError);
+if (!hasValue(data.pixelId)) {
+  fail('Pixel ID is required. The configured value resolved to an empty value.');
   return;
 }
 
+const pixelId = makeString(data.pixelId);
+const sendEvent = data.sendEvent === true;
+
 let eventName;
-if (data.sendEvent === true) {
+let customEventName;
+if (sendEvent) {
   eventName = data.eventName || 'page_viewed';
-  const eventValidationError = validateEventConfig(eventName);
+  if (eventName === 'custom') {
+    customEventName = hasValue(data.customEventName) ?
+      normalizeCustomEventName(data.customEventName) : '';
+    if (customEventName !== '' && customEventName !== makeString(data.customEventName)) {
+      log('Custom event name was normalized to "' + customEventName + '".');
+    }
+  }
+  const eventValidationError = validateEventConfig(eventName, customEventName);
   if (eventValidationError) {
     fail(eventValidationError);
     return;
@@ -1103,44 +1092,81 @@ if (data.sendEvent === true) {
 }
 
 const respectGtmConsent = data.respectGtmConsent !== false;
-const consentMode = respectGtmConsent ? (data.consentMode || 'signal') : 'signal';
+const deferUntilConsent = respectGtmConsent && (data.consentMode || 'defer') === 'defer';
 const pixelTargeting = data.pixelTargeting || 'auto';
-const pixelId = makeString(data.pixelId);
 
+// Sends the current ad_storage state to the SDK once per page and keeps it in
+// sync afterwards through a single consent listener.
 const syncConsentSignal = () => {
-  if (!respectGtmConsent) {
+  if (!respectGtmConsent || templateStorage.getItem(CONSENT_SYNCED_KEY)) {
     return;
   }
+  templateStorage.setItem(CONSENT_SYNCED_KEY, true);
   callOaiq('consent', isConsentGranted(AD_STORAGE));
-  if (!templateStorage.getItem(CONSENT_LISTENER_KEY)) {
-    addConsentListener(AD_STORAGE, (consentType, granted) => {
-      callOaiq('consent', granted);
-    });
-    templateStorage.setItem(CONSENT_LISTENER_KEY, true);
-  }
+  addConsentListener(AD_STORAGE, (consentType, granted) => {
+    callOaiq('consent', granted);
+  });
 };
 
-const dispatch = user => {
-  syncConsentSignal();
+const buildInitConfig = user => {
+  const initConfig = {
+    pixelId: pixelId
+  };
+  if (debugEnabled) {
+    initConfig.debug = true;
+  }
+  if (hasKeys(user)) {
+    initConfig.user = user;
+  }
+  return initConfig;
+};
 
+const initializePixel = user => {
   const initializedPixelIds = templateStorage.getItem(INITIALIZED_PIXELS_KEY) || {};
   if (!initializedPixelIds[pixelId]) {
     callOaiq('init', buildInitConfig(user));
     initializedPixelIds[pixelId] = true;
     templateStorage.setItem(INITIALIZED_PIXELS_KEY, initializedPixelIds);
-  } else if (hasKeys(user)) {
-    const userInitConfig = {user: user};
-    if (countKeys(initializedPixelIds) > 1) {
-      userInitConfig.pixelId = pixelId;
-    }
-    callOaiq('init', userInitConfig);
+  } else if (hasKeys(user) || debugEnabled) {
+    // A repeated init on a known Pixel ID only updates user data and the debug
+    // flag. The Pixel ID is always included so the update cannot land on a pixel
+    // initialized outside this template.
+    callOaiq('init', buildInitConfig(user));
   }
+  return countKeys(initializedPixelIds);
+};
 
-  if (data.sendEvent === true) {
+// When ad_user_data is denied at fire time, one tag per Pixel ID waits for the
+// grant and then sends the configured user data with a targeted init.
+const sendUserDataOnConsent = () => {
+  const listenerKey = USER_LISTENER_KEY_PREFIX + pixelId;
+  if (!hasConfiguredUserData() || templateStorage.getItem(listenerKey)) {
+    return;
+  }
+  templateStorage.setItem(listenerKey, true);
+  let sent = false;
+  addConsentListener(AD_USER_DATA, (consentType, granted) => {
+    if (!granted || sent) {
+      return;
+    }
+    sent = true;
+    buildUserObject(user => {
+      if (hasKeys(user)) {
+        callOaiq('init', buildInitConfig(user));
+      }
+    });
+  });
+};
+
+const dispatch = user => {
+  syncConsentSignal();
+  const initializedPixelCount = initializePixel(user);
+
+  if (sendEvent) {
     const eventProps = buildEventProps(eventName);
-    const eventOptions = buildEventOptions(eventName);
+    const eventOptions = buildEventOptions(eventName, customEventName);
     const targetSinglePixel = pixelTargeting === 'single' ||
-      (pixelTargeting === 'auto' && countKeys(initializedPixelIds) > 1);
+      (pixelTargeting === 'auto' && initializedPixelCount > 1);
     if (targetSinglePixel) {
       callOaiq('measureSingle', pixelId, eventName, eventProps, eventOptions);
     } else {
@@ -1154,19 +1180,17 @@ const dispatch = user => {
 const execute = () => {
   if (respectGtmConsent && !isConsentGranted(AD_USER_DATA)) {
     dispatch({});
+    sendUserDataOnConsent();
     return;
   }
-  const plan = planUserData();
-  if (plan.pending.length === 0) {
-    dispatch(plan.user);
-    return;
-  }
-  resolveUserData(plan, dispatch);
+  buildUserObject(dispatch);
 };
 
-// "defer" keeps the SDK off the page until ad_storage is granted, so OpenAI
-// writes no cookie or local storage before consent, and replays the event later.
-if (consentMode === 'defer' && !isConsentGranted(AD_STORAGE)) {
+// Default mode: while ad_storage is denied the SDK stays off the page, so OpenAI
+// writes no cookie and receives no request. The event is replayed once consent
+// is granted, which the SDK does not do on its own. GTM allows a single
+// completion callback per tag, so the tag reports success when it starts waiting.
+if (deferUntilConsent && !isConsentGranted(AD_STORAGE)) {
   log('Consent for ' + AD_STORAGE + ' is denied, deferring the SDK load and the event.');
   let replayed = false;
   addConsentListener(AD_STORAGE, (consentType, granted) => {
@@ -1425,33 +1449,12 @@ ___WEB_PERMISSIONS___
 ]
 
 ___TESTS___
+
 scenarios:
 - name: queues conversion
   code: |-
-    let queued = [];
-    let oaiq;
     let injectedUrl;
     let injectedCacheToken;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function(path) {
-      assertThat(path).isEqualTo('oaiq');
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function(fnKey, arrayKey) {
-      assertThat(fnKey).isEqualTo('oaiq');
-      assertThat(arrayKey).isEqualTo('oaiq.queue');
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      assertThat(path).isEqualTo('oaiq');
-      oaiq(command, arg1, arg2, arg3);
-    });
     mock('injectScript', function(url, onSuccess, onFailure, cacheToken) {
       injectedUrl = url;
       injectedCacheToken = cacheToken;
@@ -1471,7 +1474,8 @@ scenarios:
     });
 
     assertThat(queued).hasLength(3);
-    assertThat(queued[0]).isEqualTo(['consent', true, undefined, undefined]);
+    assertThat(queued[0][0]).isEqualTo('consent');
+    assertThat(queued[0][1]).isEqualTo(true);
     assertThat(queued[1][0]).isEqualTo('init');
     assertThat(queued[1][1]).isEqualTo({pixelId: 'px_123'});
     assertThat(queued[2][0]).isEqualTo('measure');
@@ -1480,34 +1484,12 @@ scenarios:
     assertThat(queued[2][3]).isEqualTo({opt_out: true});
     assertThat(injectedUrl).isEqualTo('https://bzrcdn.openai.com/sdk/oaiq.min.js');
     assertThat(injectedCacheToken).isEqualTo('openai_ads_pixel_sdk');
+    assertApi('gtmOnSuccess').wasCalled();
 - name: blocks invalid opt_out variable values
   code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
     runCode({
       pixelId: 'px_123',
       sendEvent: true,
-      enableDebug: false,
       eventName: 'lead_created',
       optOut: 'yes',
       gtmOnSuccess: function() {},
@@ -1515,29 +1497,25 @@ scenarios:
     });
 
     assertThat(queued).hasLength(0);
+    assertApi('injectScript').wasNotCalled();
+    assertApi('gtmOnFailure').wasCalled();
+- name: fails when the pixel id resolves to an empty value
+  code: |-
+    runCode({
+      pixelId: '',
+      sendEvent: true,
+      eventName: 'page_viewed',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    assertThat(queued).hasLength(0);
+    assertApi('injectScript').wasNotCalled();
     assertApi('gtmOnFailure').wasCalled();
 - name: enables sdk debug in GTM preview mode
   code: |-
-    let queued = [];
-    let oaiq;
-
     mock('getContainerVersion', function() {
       return {debugMode: false, previewMode: true};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
     });
 
     runCode({
@@ -1549,37 +1527,37 @@ scenarios:
     });
 
     assertThat(queued).hasLength(2);
-    assertThat(queued[0]).isEqualTo(['consent', true, undefined, undefined]);
+    assertThat(queued[0][0]).isEqualTo('consent');
     assertThat(queued[1][0]).isEqualTo('init');
     assertThat(queued[1][1]).isEqualTo({pixelId: 'px_123', debug: true});
-- name: queues content rows without content_type
+- name: re-sends debug on a repeated init when diagnostics are enabled
   code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: false,
+      enableDebug: false,
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
     });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
     runCode({
       pixelId: 'px_123',
       sendEvent: true,
-      enableDebug: false,
+      eventName: 'lead_created',
+      enableDebug: true,
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    assertThat(queued).hasLength(4);
+    assertThat(queued[1][1]).isEqualTo({pixelId: 'px_123'});
+    assertThat(queued[2][0]).isEqualTo('init');
+    assertThat(queued[2][1]).isEqualTo({pixelId: 'px_123', debug: true});
+    assertThat(queued[3][0]).isEqualTo('measure');
+- name: queues content rows without content_type
+  code: |-
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
       eventName: 'order_created',
       amount: '4200',
       currency: 'USD',
@@ -1601,43 +1579,18 @@ scenarios:
     assertThat(queued[2][3]).isEqualTo({});
 - name: queues page_viewed data
   code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
     runCode({
       pixelId: 'px_123',
       sendEvent: true,
-      enableDebug: false,
       eventName: 'page_viewed',
       amount: '100',
       currency: 'USD',
       contents: [{contentType: 'page', id: 'pricing', name: 'Pricing page'}],
-      optOut: 'omit',
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
     });
 
     assertThat(queued).hasLength(3);
-    assertThat(queued[2][0]).isEqualTo('measure');
     assertThat(queued[2][1]).isEqualTo('page_viewed');
     assertThat(queued[2][2]).isEqualTo({
       type: 'contents',
@@ -1648,28 +1601,6 @@ scenarios:
     assertThat(queued[2][3]).isEqualTo({});
 - name: queues dynamic contents using documented keys
   code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
     runCode({
       pixelId: 'px_123',
       sendEvent: true,
@@ -1699,75 +1630,155 @@ scenarios:
         currency: 'EUR'
       }]
     });
-- name: syncs denied consent and omits user data
+- name: sends the event without contents when the contents variable is empty
   code: |-
-    let queued = [];
-    let oaiq;
-    let listener;
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'order_created',
+      amount: '2599',
+      currency: 'EUR',
+      contentsSource: 'variable',
+      dynamicContents: undefined,
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
 
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('isConsentGranted', function(consentType) {
-      return false;
-    });
-    mock('addConsentListener', function(consentType, callback) {
-      assertThat(consentType).isEqualTo('ad_storage');
-      listener = callback;
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
+    assertThat(queued).hasLength(3);
+    assertThat(queued[2][1]).isEqualTo('order_created');
+    assertThat(queued[2][2]).isEqualTo({type: 'contents', amount: 2599, currency: 'EUR'});
+    assertApi('gtmOnSuccess').wasCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
 
     runCode({
       pixelId: 'px_123',
-      sendEvent: false,
+      sendEvent: true,
+      eventName: 'page_viewed',
+      contentsSource: 'variable',
+      dynamicContents: 'not an array',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    assertThat(queued).hasLength(3);
+    assertApi('gtmOnFailure').wasCalled();
+- name: defers the sdk until ad_storage consent is granted
+  code: |-
+    consentState.ad_storage = false;
+
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'lead_created',
       respectGtmConsent: true,
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    assertThat(queued).hasLength(0);
+    assertApi('injectScript').wasNotCalled();
+    assertApi('gtmOnSuccess').wasCalled();
+
+    grant('ad_storage');
+
+    assertThat(queued).hasLength(3);
+    assertThat(queued[0][0]).isEqualTo('consent');
+    assertThat(queued[0][1]).isEqualTo(true);
+    assertThat(queued[1][0]).isEqualTo('init');
+    assertThat(queued[2][0]).isEqualTo('measure');
+    assertThat(queued[2][1]).isEqualTo('lead_created');
+    assertApi('injectScript').wasCalled();
+- name: signal mode loads the sdk and syncs denied consent
+  code: |-
+    consentState.ad_storage = false;
+    consentState.ad_user_data = false;
+
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'lead_created',
+      respectGtmConsent: true,
+      consentMode: 'signal',
       emailSha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
     });
 
-    assertThat(queued[0]).isEqualTo(['consent', false, undefined, undefined]);
-    assertThat(queued[1]).isEqualTo(['init', {pixelId: 'px_123'}, undefined, undefined]);
-    listener('ad_storage', true);
-    assertThat(queued[2]).isEqualTo(['consent', true, undefined, undefined]);
+    assertThat(queued).hasLength(3);
+    assertThat(queued[0][0]).isEqualTo('consent');
+    assertThat(queued[0][1]).isEqualTo(false);
+    assertThat(queued[1][0]).isEqualTo('init');
+    assertThat(queued[1][1]).isEqualTo({pixelId: 'px_123'});
+    assertThat(queued[2][0]).isEqualTo('measure');
+    assertApi('injectScript').wasCalled();
+
+    grant('ad_storage');
+
+    assertThat(queued).hasLength(4);
+    assertThat(queued[3][0]).isEqualTo('consent');
+    assertThat(queued[3][1]).isEqualTo(true);
+- name: sends user data once when ad_user_data is granted later
+  code: |-
+    consentState.ad_user_data = false;
+
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'page_viewed',
+      emailSha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'lead_created',
+      emailSha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    assertThat(queued).hasLength(4);
+    assertThat(queued[1][1]).isEqualTo({pixelId: 'px_123'});
+    assertThat(consentListeners.ad_user_data).hasLength(1);
+
+    grant('ad_user_data');
+    grant('ad_user_data');
+
+    assertThat(queued).hasLength(5);
+    assertThat(queued[4][0]).isEqualTo('init');
+    assertThat(queued[4][1]).isEqualTo({
+      pixelId: 'px_123',
+      user: {email_sha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
+    });
+- name: sends the consent command once per page
+  code: |-
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'page_viewed',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'lead_created',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    let consentCommands = 0;
+    for (let i = 0; i < queued.length; i += 1) {
+      if (queued[i][0] === 'consent') {
+        consentCommands += 1;
+      }
+    }
+    assertThat(consentCommands).isEqualTo(1);
+    assertThat(consentListeners.ad_storage).hasLength(1);
+    assertThat(queued).hasLength(4);
 - name: sends current documented user fields
   code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
     runCode({
       pixelId: 'px_123',
       sendEvent: false,
@@ -1798,158 +1809,24 @@ scenarios:
         postal_code: '00100'
       }
     });
-- name: rejects invalid custom event names
+- name: accepts the legacy zipCode parameter
   code: |-
-    runCode({
-      pixelId: 'px_123',
-      sendEvent: true,
-      eventName: 'custom',
-      customEventName: 'invalid custom event!',
-      gtmOnSuccess: function() {},
-      gtmOnFailure: function() {}
-    });
-
-    assertApi('gtmOnFailure').wasCalled();
-    assertApi('injectScript').wasNotCalled();
-- name: initializes a pixel once and accepts late user data
-  code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
-    runCode({
-      pixelId: 'px_123',
-      sendEvent: true,
-      eventName: 'lead_created',
-      respectGtmConsent: false,
-      gtmOnSuccess: function() {},
-      gtmOnFailure: function() {}
-    });
-    runCode({
-      pixelId: 'px_123',
-      sendEvent: true,
-      eventName: 'registration_completed',
-      respectGtmConsent: false,
-      emailSha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-      gtmOnSuccess: function() {},
-      gtmOnFailure: function() {}
-    });
-
-    assertThat(queued).hasLength(4);
-    assertThat(queued[0]).isEqualTo(['init', {pixelId: 'px_123'}, undefined, undefined]);
-    assertThat(queued[1][0]).isEqualTo('measure');
-    assertThat(queued[2]).isEqualTo([
-      'init',
-      {user: {email_sha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}},
-      undefined,
-      undefined
-    ]);
-    assertThat(queued[3][0]).isEqualTo('measure');
-- name: targets late user data when multiple pixels are initialized
-  code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3, arg4) {
-        queued.push([command, arg1, arg2, arg3, arg4]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3, arg4) {
-      oaiq(command, arg1, arg2, arg3, arg4);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
     runCode({
       pixelId: 'px_123',
       sendEvent: false,
-      respectGtmConsent: false,
-      gtmOnSuccess: function() {},
-      gtmOnFailure: function() {}
-    });
-    runCode({
-      pixelId: 'px_456',
-      sendEvent: false,
-      respectGtmConsent: false,
-      gtmOnSuccess: function() {},
-      gtmOnFailure: function() {}
-    });
-    runCode({
-      pixelId: 'px_123',
-      sendEvent: true,
-      eventName: 'registration_completed',
-      respectGtmConsent: false,
-      emailSha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      zipCode: '00100',
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
     });
 
-    assertThat(queued).hasLength(4);
-    assertThat(queued[2][0]).isEqualTo('init');
-    assertThat(queued[2][1]).isEqualTo({
-      user: {email_sha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'},
-      pixelId: 'px_123'
-    });
-    assertThat(queued[3][0]).isEqualTo('measureSingle');
-    assertThat(queued[3][1]).isEqualTo('px_123');
-    assertThat(queued[3][2]).isEqualTo('registration_completed');
-    assertThat(queued[3][3]).isEqualTo({type: 'customer_action'});
-    assertThat(queued[3][4]).isEqualTo({});
+    assertThat(queued[1][1]).isEqualTo({pixelId: 'px_123', user: {postal_code: '00100'}});
 - name: normalizes and hashes raw identifiers before init
   code: |-
-    let queued = [];
-    let oaiq;
     let hashedInputs = [];
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
     mock('sha256', function(input, onSuccess, onFailure, options) {
       assertThat(options).isEqualTo({outputEncoding: 'hex'});
       hashedInputs.push(input);
       onSuccess('hash:' + input);
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
     });
 
     runCode({
@@ -1984,44 +1861,48 @@ scenarios:
         last_name_sha256: 'hash:oconnor'
       }
     });
-- name: rejects raw identifiers when in-browser hashing is off
+- name: skips raw identifiers when in-browser hashing is off
   code: |-
     runCode({
       pixelId: 'px_123',
-      sendEvent: false,
+      sendEvent: true,
+      eventName: 'lead_created',
       hashUserData: false,
       emailSha256: 'mary.jane@example.com',
+      externalIdSha256: 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
     });
 
-    assertApi('gtmOnFailure').wasCalled();
     assertApi('sha256').wasNotCalled();
-    assertApi('injectScript').wasNotCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+    assertThat(queued).hasLength(3);
+    assertThat(queued[1][1]).isEqualTo({
+      pixelId: 'px_123',
+      user: {external_id_sha256: 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc'}
+    });
+    assertThat(queued[2][0]).isEqualTo('measure');
+- name: skips invalid user fields without dropping the conversion
+  code: |-
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'registration_completed',
+      phoneNumberSha256: '555',
+      country: 'Italy',
+      city: 'Rome',
+      postalCode: '00100!',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    assertApi('sha256').wasNotCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+    assertThat(queued).hasLength(3);
+    assertThat(queued[1][1]).isEqualTo({pixelId: 'px_123', user: {city: 'Rome'}});
+    assertThat(queued[2][1]).isEqualTo('registration_completed');
 - name: lowercases an uppercase sha256 digest
   code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
     runCode({
       pixelId: 'px_123',
       sendEvent: false,
@@ -2037,13 +1918,13 @@ scenarios:
         email_sha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
       }
     });
-- name: rejects uppercase and reserved custom event names
+- name: rejects invalid custom event names
   code: |-
     runCode({
       pixelId: 'px_123',
       sendEvent: true,
       eventName: 'custom',
-      customEventName: 'Quote_Requested',
+      customEventName: 'invalid custom event!',
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
     });
@@ -2055,94 +1936,117 @@ scenarios:
       pixelId: 'px_123',
       sendEvent: true,
       eventName: 'custom',
-      customEventName: 'app_opened',
+      customEventName: '',
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
     });
 
     assertApi('injectScript').wasNotCalled();
-- name: defers the sdk until ad_storage consent is granted
+    assertThat(queued).hasLength(0);
+- name: lowercases custom event names and keeps standard names reserved
   code: |-
-    let queued = [];
-    let oaiq;
-    let listener;
-    let granted = false;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('isConsentGranted', function() {
-      return granted;
-    });
-    mock('addConsentListener', function(consentType, callback) {
-      listener = callback;
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3) {
-        queued.push([command, arg1, arg2, arg3]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3) {
-      oaiq(command, arg1, arg2, arg3);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'custom',
+      customEventName: ' Quote_Requested ',
+      planId: 'pro_monthly',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
     });
 
+    assertThat(queued).hasLength(3);
+    assertThat(queued[2][1]).isEqualTo('custom');
+    assertThat(queued[2][2]).isEqualTo({type: 'custom', plan_id: 'pro_monthly'});
+    assertThat(queued[2][3]).isEqualTo({custom_event_name: 'quote_requested'});
+
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'custom',
+      customEventName: 'App_Opened',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+
+    assertThat(queued).hasLength(3);
+    assertApi('gtmOnFailure').wasCalled();
+- name: initializes a pixel once and accepts late user data
+  code: |-
     runCode({
       pixelId: 'px_123',
       sendEvent: true,
       eventName: 'lead_created',
-      respectGtmConsent: true,
-      consentMode: 'defer',
+      respectGtmConsent: false,
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'registration_completed',
+      respectGtmConsent: false,
+      emailSha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
     });
 
-    assertThat(queued).hasLength(0);
-    assertApi('injectScript').wasNotCalled();
-    assertApi('gtmOnSuccess').wasCalled();
+    assertThat(queued).hasLength(4);
+    assertThat(queued[0][0]).isEqualTo('init');
+    assertThat(queued[0][1]).isEqualTo({pixelId: 'px_123'});
+    assertThat(queued[1][0]).isEqualTo('measure');
+    assertThat(queued[2][0]).isEqualTo('init');
+    assertThat(queued[2][1]).isEqualTo({
+      pixelId: 'px_123',
+      user: {email_sha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
+    });
+    assertThat(queued[3][0]).isEqualTo('measure');
+- name: targets late user data when multiple pixels are initialized
+  code: |-
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: false,
+      respectGtmConsent: false,
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+    runCode({
+      pixelId: 'px_456',
+      sendEvent: false,
+      respectGtmConsent: false,
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
+    runCode({
+      pixelId: 'px_123',
+      sendEvent: true,
+      eventName: 'registration_completed',
+      eventId: 'evt_1',
+      respectGtmConsent: false,
+      emailSha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      gtmOnSuccess: function() {},
+      gtmOnFailure: function() {}
+    });
 
-    granted = true;
-    listener('ad_storage', true);
-
-    assertThat(queued[0]).isEqualTo(['consent', true, undefined, undefined]);
-    assertThat(queued[1][0]).isEqualTo('init');
-    assertThat(queued[2][0]).isEqualTo('measure');
-    assertThat(queued[2][1]).isEqualTo('lead_created');
-    assertApi('injectScript').wasCalled();
+    assertThat(queued).hasLength(4);
+    assertThat(queued[2][0]).isEqualTo('init');
+    assertThat(queued[2][1]).isEqualTo({
+      pixelId: 'px_123',
+      user: {email_sha256: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
+    });
+    assertThat(queued[3][0]).isEqualTo('measureSingle');
+    assertThat(queued[3][1]).isEqualTo('px_123');
+    assertThat(queued[3][2]).isEqualTo('registration_completed');
+    assertThat(queued[3][3]).isEqualTo({type: 'customer_action'});
+    assertThat(queued[3][4]).isEqualTo({event_id: 'evt_1'});
 - name: forces measureSingle when the tag targets one pixel
   code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3, arg4) {
-        queued.push([command, arg1, arg2, arg3, arg4]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3, arg4) {
-      oaiq(command, arg1, arg2, arg3, arg4);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
     runCode({
       pixelId: 'px_123',
       sendEvent: true,
       eventName: 'order_created',
+      eventId: 'order_12345',
+      optOut: 'false',
       pixelTargeting: 'single',
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
@@ -2152,37 +2056,15 @@ scenarios:
     assertThat(queued[2][1]).isEqualTo('px_123');
     assertThat(queued[2][2]).isEqualTo('order_created');
     assertThat(queued[2][3]).isEqualTo({type: 'contents'});
+    assertThat(queued[2][4]).isEqualTo({event_id: 'order_12345', opt_out: false});
 - name: keeps measure for every pixel when targeting is all
   code: |-
-    let queued = [];
-    let oaiq;
-
-    mock('getContainerVersion', function() {
-      return {debugMode: false, previewMode: false};
-    });
-    mock('copyFromWindow', function() {
-      return oaiq;
-    });
-    mock('createArgumentsQueue', function() {
-      oaiq = function(command, arg1, arg2, arg3, arg4) {
-        queued.push([command, arg1, arg2, arg3, arg4]);
-      };
-      return oaiq;
-    });
-    mock('callInWindow', function(path, command, arg1, arg2, arg3, arg4) {
-      oaiq(command, arg1, arg2, arg3, arg4);
-    });
-    mock('injectScript', function(url, onSuccess) {
-      onSuccess();
-    });
-
     runCode({
       pixelId: 'px_a',
       sendEvent: false,
       gtmOnSuccess: function() {},
       gtmOnFailure: function() {}
     });
-
     runCode({
       pixelId: 'px_b',
       sendEvent: true,
@@ -2197,10 +2079,42 @@ scenarios:
     assertThat(lastCall[1]).isEqualTo('page_viewed');
 setup: |-
   const templateValues = {};
-  mock('isConsentGranted', function() {
-    return true;
+  let queued = [];
+  let oaiq;
+  const consentState = {ad_storage: true, ad_user_data: true};
+  const consentListeners = {};
+
+  mock('getContainerVersion', function() {
+    return {debugMode: false, previewMode: false};
   });
-  mock('addConsentListener', function() {});
+  mock('isConsentGranted', function(consentType) {
+    return consentState[consentType] !== false;
+  });
+  mock('addConsentListener', function(consentType, callback) {
+    if (!consentListeners[consentType]) {
+      consentListeners[consentType] = [];
+    }
+    consentListeners[consentType].push(callback);
+  });
+  mock('copyFromWindow', function(path) {
+    assertThat(path).isEqualTo('oaiq');
+    return oaiq;
+  });
+  mock('createArgumentsQueue', function(fnKey, arrayKey) {
+    assertThat(fnKey).isEqualTo('oaiq');
+    assertThat(arrayKey).isEqualTo('oaiq.queue');
+    oaiq = function(command, arg1, arg2, arg3, arg4) {
+      queued.push([command, arg1, arg2, arg3, arg4]);
+    };
+    return oaiq;
+  });
+  mock('callInWindow', function(path, command, arg1, arg2, arg3, arg4) {
+    assertThat(path).isEqualTo('oaiq');
+    oaiq(command, arg1, arg2, arg3, arg4);
+  });
+  mock('injectScript', function(url, onSuccess, onFailure, cacheToken) {
+    onSuccess();
+  });
   mockObject('templateStorage', {
     getItem: function(key) {
       return templateValues[key];
@@ -2214,7 +2128,19 @@ setup: |-
     clear: function() {}
   });
 
+  const grant = function(consentType) {
+    consentState[consentType] = true;
+    const registered = consentListeners[consentType] || [];
+    const listeners = [];
+    for (let i = 0; i < registered.length; i += 1) {
+      listeners.push(registered[i]);
+    }
+    for (let i = 0; i < listeners.length; i += 1) {
+      listeners[i](consentType, true);
+    }
+  };
 
 ___NOTES___
 
-Enhanced fork of the OpenAI Ads Measurement Pixel GTM template. Adds Google Consent Mode synchronization, current documented user matching fields, dynamic contents variables, strict runtime validation, per-page initialization deduplication, and expanded tests.
+Enhanced community fork of the OpenAI Ads Measurement Pixel GTM template. Adds Google Consent Mode integration with a no-storage-before-consent default, every documented user matching field with optional in-browser normalization and SHA-256 hashing, dynamic contents variables, explicit multi-pixel targeting, one initialization per Pixel ID per page, non-blocking user data validation, and an expanded test suite.
+

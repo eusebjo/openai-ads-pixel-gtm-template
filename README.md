@@ -1,55 +1,62 @@
-# OpenAI Ads Measurement Pixel GTM Template — Enhanced Fork
+# OpenAI Ads Measurement Pixel GTM Template, enhanced fork
 
-This repository is an enhanced fork of OpenAI's official Google Tag Manager web
-tag template. It installs and configures the OpenAI Ads Measurement Pixel without
-Custom HTML and keeps the SDK URL and global API locked behind narrow GTM
+Community-maintained fork of OpenAI's Google Tag Manager web tag template for
+the OpenAI Ads Measurement Pixel. It installs and configures the Pixel without
+Custom HTML and keeps the SDK URL and the `oaiq` global locked behind narrow GTM
 template permissions.
 
-The fork adds:
-
-- Google Consent Mode synchronization for `ad_storage` and `ad_user_data`, plus
-  an optional strict mode that keeps the SDK off the page until consent is
-  granted and then replays the event;
-- all nine documented user-matching fields, with optional in-browser
-  normalization and SHA-256 hashing so raw values never leave the page;
-- manual or variable-driven `contents` arrays;
-- explicit `measure` / `measureSingle` targeting for multi-pixel pages;
-- per-page Pixel initialization deduplication and late `init({user})` support;
-- validation aligned with the SDK's own rules for currency, monetary integers,
-  custom event names, contents, and identifier hashes;
-- 18 GTM sandbox test scenarios.
-
-This fork is not an official OpenAI release. The upstream source is
+This fork is not an official OpenAI release. Upstream source:
 [openai/ads-measurement-pixel-gtm-template](https://github.com/openai/ads-measurement-pixel-gtm-template).
+
+What the fork adds:
+
+- Google Consent Mode integration. By default the SDK is not loaded while
+  `ad_storage` is denied, so OpenAI writes no cookie and receives no request
+  before consent; the event is sent once consent is granted. User matching data
+  follows `ad_user_data`, including a grant that arrives after the tag fired.
+- All nine documented user matching fields, with optional in-browser
+  normalization and SHA-256 hashing. A field that cannot be sent is skipped and
+  logged in Preview; it never blocks the conversion.
+- `contents` from a manual table or from a GTM variable. An empty variable sends
+  the event without contents.
+- Explicit `measure` / `measureSingle` targeting for pages with several Pixel IDs,
+  and late user data updates always addressed to the configured Pixel ID.
+- One `init` per Pixel ID per page, with debug and user data updates on repeated
+  fires.
+- Custom event names lowercased before sending, because Ads Manager registers
+  custom event names in lowercase only.
+- Validation aligned with the SDK build (`oaiq.min.js` 0.1.32) for currency,
+  monetary integers, contents and identifier digests.
+- 25 GTM sandbox test scenarios.
 
 ## Coverage of the Pixel surface
 
-Checked against the OpenAI documentation and against the shipped SDK build
-(`oaiq.min.js`, `0.1.32`), which is the authority on what is actually accepted.
+Checked against the OpenAI documentation and against the shipped SDK build,
+which is the authority on what is actually accepted.
 
 | Pixel capability | Upstream template | This fork |
 | --- | --- | --- |
-| `init` with `pixelId` and `debug` | Yes | Yes, debug also automatic in GTM Preview |
-| `consent` command | No | Yes, driven by Consent Mode, with a no-storage-before-consent mode |
+| `init` with `pixelId` and `debug` | Yes | Yes, debug also automatic in GTM Preview and re-sent on repeated fires |
+| `consent` command | No | Yes, driven by Consent Mode, no-storage-before-consent default |
 | `measure` | Yes | Yes |
 | `measureSingle` | No | Yes, automatic or forced |
 | 11 web event names | Yes | Yes |
-| `app_installed`, `app_opened` excluded (Conversions API only) | Yes | Yes, and both are reserved against reuse as a custom event name |
+| `app_installed`, `app_opened` excluded (Conversions API only) | Yes | Yes, and both are reserved against reuse as a custom event name (template policy, the SDK reserves only the 11 web names) |
 | `contents`, `customer_action`, `plan_enrollment`, `custom` shapes | Yes | Yes |
-| `plan_id` on `plan_enrollment` and `custom` | Partial | Yes |
-| `contents[]` on `contents`, `plan_enrollment` and `custom` | Partial | Yes |
+| `plan_id` on `plan_enrollment` and `custom` | Yes | Yes |
+| `contents[]` on `contents`, `plan_enrollment` and `custom` | Yes | Yes |
 | `contents[]` restricted to the six Pixel-supported keys | Yes | Yes, `group_id` and `variant_dict` stay Conversions-API-only |
 | `contents[]` from a GTM variable | No | Yes |
 | `event_id`, `custom_event_name`, `opt_out` | Yes | Yes |
-| `custom_event_name` rules | Partial | Yes, including the SDK's lowercase-only rule |
-| `user` identifier fields | 3 of 5 | 5 of 5 |
+| `custom_event_name` rules | Non-empty only | Documented rules, lowercased before sending |
+| `user` identifier fields | 2 of 5 (`email_sha256`, `external_id_sha256`) | 5 of 5 |
 | `user` location fields | `country`, `city`, `zip_code` | `country`, `city`, `region`, `postal_code` |
-| Raw identifiers normalized and hashed in the browser | No | Yes, optional |
-| One `init` per Pixel ID per page, late `init({user})` | No | Yes |
+| Raw identifiers hashed before they reach the page-global `oaiq` queue | No, raw values were handed to the SDK, which hashes them itself (undocumented) | Yes, optional |
+| One `init` per Pixel ID, late `init({pixelId, user})` | No | Yes |
 | Automatic advanced matching, `oppref`, `source_url`, batching | Handled by the SDK | Handled by the SDK |
 
-`measure`, `measureSingle`, `init` and `consent` are the only commands the SDK
-dispatches, so the command surface is fully covered.
+The SDK dispatches only `init` (alias `initialize`), `consent`, `measure` and
+`measureSingle`, so the command surface is fully covered.
 
 ## Install
 
@@ -76,47 +83,61 @@ Pixel ID in all tags.
 
 An optional base tag can initialize the Pixel without sending an event. Disable
 event sending and attach an Initialization or All Pages trigger. Event tags can
-also initialize the Pixel themselves, and this fork prevents duplicate
+also initialize the Pixel themselves; the template prevents duplicate
 `init({pixelId})` calls for the same Pixel ID on a page.
 
-If a page initializes more than one Pixel ID, late user-data updates are
-explicitly targeted to the intended Pixel ID as required by the OpenAI multiple
-pixels guidance.
+Do not use a button click as the trigger when it only represents an attempt.
+Fire `order_created` after the order is confirmed and `registration_completed`
+after account creation succeeds.
+
+### Pages with more than one Pixel ID
 
 **Send the event to** controls which pixels receive the event:
 
 | Option | Behaviour |
 | --- | --- |
-| Automatic (default) | `measure` while the page runs a single Pixel ID, `measureSingle` once this template has initialized more than one. |
+| Automatic (default) | `measure` while this template has initialized a single Pixel ID, `measureSingle` once it has initialized more than one. |
 | This Pixel ID only | Always `measureSingle`, addressed to the Pixel ID in this tag. |
-| Every initialized Pixel ID | Always `measure`, which the SDK broadcasts to every Pixel ID initialized so far. |
+| Every initialized Pixel ID | Always `measure`, which the SDK broadcasts to every Pixel ID initialized on the page, including pixels initialized outside GTM. |
 
-Do not use a button click as the trigger when it only represents an attempt.
-For example, fire `order_created` after the order is confirmed and
-`registration_completed` after account creation succeeds.
+The automatic option counts only pixels initialized by this template. When the
+page also runs a hardcoded Pixel of another advertiser, choose **This Pixel ID
+only**. Late user data updates always include the Pixel ID, so they cannot land
+on a pixel initialized elsewhere.
 
 ## Supported browser events
-
-The template exposes the documented web Pixel events:
 
 - content and commerce: `page_viewed`, `contents_viewed`, `items_added`,
   `checkout_started`, `order_created`;
 - customer actions: `lead_created`, `registration_completed`,
   `appointment_scheduled`;
 - plan enrollment: `subscription_created`, `trial_started`;
-- fallback: `custom`, with a valid `custom_event_name`.
+- fallback: `custom`, with a `custom_event_name`.
 
-Native-app-only events such as `app_installed` and `app_opened` are not exposed
-because this is a GTM web template.
+`app_installed` and `app_opened` are Conversions API only and are not exposed.
+
+### Custom event names
+
+A custom event is attributed to the conversion registered in Ads Manager with
+the same `custom_event_name`. Ads Manager accepts lowercase names only, so the
+template lowercases the configured value before validating and sending it, and
+logs the change in Preview. The documented rules then apply: 1 to 64
+characters, letters, numbers, underscores or hyphens, first and last character
+alphanumeric, not a standard event name. The display name of the conversion in
+Ads Manager is never transmitted.
+
+If the same conversion is also sent through the Conversions API, keep
+`custom_event_name` and `event_id` identical on both sides; deduplication
+matches on Pixel ID, event name and `event_id`.
 
 ## Event data
 
-All monetary amounts are integers in the currency's minor unit. For example,
-EUR 25.99 is `2599`, not `25.99`. Currency values must be three-letter codes
-such as `EUR` or `USD`.
+All monetary amounts are integers in the currency's minor unit: EUR 25.99 is
+`2599`. Currency values are three-letter ISO 4217 codes such as `EUR`.
 
-For content events, choose either a manual table or a GTM variable. A dynamic
-variable must resolve to an array of objects using documented keys:
+For content events, choose a manual table or a GTM variable. A variable must
+resolve to an array of objects using the documented keys; other keys are
+ignored, and an empty or undefined variable sends the event without contents:
 
 ```javascript
 [
@@ -131,67 +152,87 @@ variable must resolve to an array of objects using documented keys:
 ]
 ```
 
-`event_id` is optional for Pixel-only tracking. When the same conversion is sent
-through Pixel and Conversions API, pass the same stable ID to both sides to
-enable deduplication.
-
 ## Consent
 
-With **Respect Google Consent Mode** enabled, the tag sends the current
-`ad_storage` value through `oaiq("consent", ...)` before Pixel initialization and
-keeps it synchronized when consent changes. Configured user-matching data is
-sent only when `ad_user_data` is granted.
+OpenAI documents a single consent mechanism: `oaiq("consent", false)` before
+`init`, `oaiq("consent", true)` when the user accepts. With consent `false` the
+SDK sends no measurement events and does not replay them later. There is no
+cookieless or modelled mode comparable to Google's advanced Consent Mode.
 
-**When `ad_storage` is denied** selects one of two behaviours:
+With **Respect Google Consent Mode** enabled, **When ad_storage is denied**
+selects one of two behaviours:
 
 | Option | Behaviour |
 | --- | --- |
-| Load the SDK and set OpenAI consent to false (default) | Matches the documented OpenAI pattern. The SDK loads, sends no measurement pings, and writes its own `__oaiq_consent` cookie and local storage entry. Events fired while consent is denied are lost, because the SDK does not replay blocked events. |
-| Do not load the SDK, then send the event once consent is granted | The SDK is never injected while consent is denied, so no OpenAI cookie or local storage is written before consent. The tag registers a consent listener and replays its own event when `ad_storage` becomes granted. |
+| Do not load the SDK, send the event once consent is granted (default) | Nothing is loaded while `ad_storage` is denied: no OpenAI cookie, no local storage entry, no request. The tag registers a consent listener and sends its own event when `ad_storage` becomes granted. GTM allows one completion callback per tag, so the tag reports success as soon as it starts waiting, and a later SDK load failure is not reported. |
+| Load the SDK and set OpenAI consent to false | The documented OpenAI pattern. The SDK loads, receives `consent(false)`, writes its own `__oaiq_consent` cookie and local storage entry, and, as far as the SDK source shows, still sends a first-visit diagnostic request. Events fired while consent is denied are discarded and never replayed. |
 
-Choose the second option for sites that must write no vendor storage before
-consent, which is the usual expectation under the ePrivacy Directive as
-implemented in the EU.
+The default was chosen because the SDK offers no useful behaviour under denied
+consent: no conversions are measured and no modelling exists, while storage is
+written and a request is sent. Treating OpenAI like any vendor without a
+documented cookieless mode, nothing should run before consent.
 
-Important: GTM treats an unset consent type as granted. Your CMP or Consent Mode
-template must therefore establish the default consent state before this tag
-runs.
+Two facts that make the default safe to adopt:
 
-The event-level `opt_out` option is a personalization opt-out. It is not a
+- GTM treats a consent type that was never set as granted. On a site without
+  Consent Mode both options behave identically: the SDK loads and the event is
+  sent immediately. The default only changes behaviour where a CMP has actually
+  denied `ad_storage`.
+- The CMP must set Consent Mode defaults before this tag runs; otherwise the tag
+  sees "granted" and proceeds.
+
+The template sends the `consent` command once per page and keeps it in sync
+through a single `ad_storage` listener. Configured user matching data is sent
+only when `ad_user_data` is granted: at fire time, or through a targeted
+`init({pixelId, user})` when the grant arrives later on the page. One listener
+per Pixel ID is registered by the first tag that has user data configured.
+
+The event-level `opt_out` option is a personalization opt-out, not a
 replacement for measurement consent.
 
 ## User matching
 
 The template supports every documented field: `email_sha256`,
 `phone_number_sha256`, `external_id_sha256`, `first_name_sha256`,
-`last_name_sha256`, `country`, `city`, `region`, and `postal_code`.
+`last_name_sha256`, `country`, `city`, `region`, and `postal_code`. Tags created
+with the upstream template keep working: the old `zipCode` value is read as the
+postal code when the new field is empty.
 
 Each identifier field accepts either a 64-character hexadecimal SHA-256 digest,
-which is passed through unchanged, or a raw value. With **Normalize and SHA-256
-hash raw identifiers in the browser** enabled, a raw value is normalized
+which is passed through in lowercase, or a raw value. With **Normalize and
+SHA-256 hash raw identifiers in the browser** enabled, a raw value is normalized
 following the OpenAI rules and hashed with the browser Web Crypto API before it
-is handed to the SDK, so no raw identifier is ever transmitted:
+is handed to the SDK:
 
 | Field | Normalization applied before hashing |
 | --- | --- |
 | Email | Trim whitespace, lowercase |
 | Phone number | Keep the country code and digits only, drop a leading `+` and leading zeroes, expect 8 to 15 digits |
 | External ID | Trim whitespace, preserve case and every other character |
-| First name, last name | Lowercase, remove whitespace and ASCII punctuation, preserve accents |
+| First name, last name | Lowercase, remove whitespace (including Unicode spaces) and ASCII punctuation, preserve accents |
 
-Clear the checkbox to reject anything that is not already a digest, which
-reproduces the stricter behaviour of earlier versions of this fork. If the
-browser has no Web Crypto SHA-256, the affected identifier is dropped and the
-conversion is still sent.
+The current SDK build also hashes raw values on its own, although the
+documentation says never to send them. Hashing in the template is therefore a
+defence in depth: the raw value never enters the page-global `oaiq` queue,
+which any other script on the page can read.
+
+Clear the checkbox to skip any identifier that is not already a digest. In every
+case a field that cannot be sent (invalid country code, city or region over 128
+characters, postal code with characters other than letters, digits, spaces and
+hyphens, phone outside 8 to 15 digits, browser without Web Crypto) is dropped
+with a Preview log and the conversion is still sent.
 
 Review your legal basis and consent requirements before enabling any matching
 field.
 
 ## Debugging and QA
 
-Debug mode is enabled automatically in GTM Preview/Debug. Keep the manual debug
-checkbox disabled in published containers unless OpenAI Ads support asks you to
-enable diagnostics.
+The OpenAI SDK debug flag is set automatically in GTM Preview/Debug and can be
+forced with **Enable setup diagnostics in the browser console**; the SDK then
+logs to the console also in a published container, on the first and on repeated
+inits. The template's own validation messages use the GTM logging permission,
+which is restricted to Preview/Debug, so a misconfigured tag in a published
+container fails silently: run every new tag through Preview first.
 
 Before publishing:
 
@@ -200,31 +241,32 @@ Before publishing:
    boundary.
 3. Check that the loader request uses
    `https://bzrcdn.openai.com/sdk/oaiq.min.js`.
-4. Validate consent-denied and consent-granted paths separately.
-5. Confirm that no raw identifier leaves the browser: with in-browser hashing
-   enabled, the network payload must contain only 64-character digests.
-6. Confirm CSP permits the OpenAI CDN and any documented collection endpoints.
-7. Validate the event in Ads Manager before publishing the container.
+4. Validate consent-denied and consent-granted paths separately, including a
+   grant given after the page loaded.
+5. Confirm that no raw identifier leaves the browser: the network payload must
+   contain only 64-character digests.
+6. Confirm CSP permits `https://bzrcdn.openai.com` (script and connect) and
+   `https://bzr.openai.com` (connect and img).
+7. Confirm the events reach OpenAI with the Ads API "recent events" endpoint of
+   the conversion setup reference, or wait for them in Ads Manager.
 
 ## Community Template Gallery publication
 
-Before publishing this fork to the GTM Community Template Gallery:
+Before submitting this fork to the GTM Community Template Gallery:
 
-- replace upstream branding only with assets and names you are authorized to use;
-- point `homepage` and `documentation` in `metadata.yaml` to your maintained fork;
-- commit the final `template.tpl`, then replace the metadata version SHA with
-  that exact commit SHA;
-- follow Google's template style, permission, testing, and gallery policies;
-- do not present this enhanced fork as an official OpenAI-maintained template.
-
-The current `metadata.yaml` intentionally preserves the upstream provenance and
-is not ready to identify a separately published fork.
+- commit the final `template.tpl`, then set the version SHA in `metadata.yaml`
+  to that exact commit;
+- keep `homepage` and `documentation` in `metadata.yaml` pointing to the
+  maintained fork;
+- follow Google's template style, permission, testing and gallery policies;
+- do not present the fork as an official OpenAI-maintained template.
 
 ## Sources
 
 - [OpenAI Ads Measurement Pixel](https://developers.openai.com/ads/measurement-pixel)
 - [OpenAI Ads supported events](https://developers.openai.com/ads/supported-events)
 - [OpenAI Ads multiple pixels](https://developers.openai.com/ads/multiple-pixels)
+- [OpenAI Ads conversion setup API](https://developers.openai.com/ads/api-reference/conversion-setup)
 - [Google custom templates guide](https://developers.google.com/tag-platform/tag-manager/templates)
 - [Google template APIs](https://developers.google.com/tag-platform/tag-manager/templates/api)
 - [Google permissions reference](https://developers.google.com/tag-platform/tag-manager/templates/permissions)
@@ -232,19 +274,10 @@ is not ready to identify a separately published fork.
 
 ## Security
 
-To report a security issue, follow [SECURITY.md](SECURITY.md).
+For vulnerabilities in the OpenAI Pixel SDK, follow OpenAI's
+[Coordinated Vulnerability Disclosure Policy](https://openai.com/policies/coordinated-vulnerability-disclosure-policy).
+For issues in this template, see [SECURITY.md](SECURITY.md).
 
 ## License
 
-Copyright 2026 OpenAI
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed
-under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-CONDITIONS OF ANY KIND, either express or implied. See the License for the
-specific language governing permissions and limitations under the License.
+Apache 2.0, see [LICENSE](LICENSE). Upstream copyright OpenAI.
