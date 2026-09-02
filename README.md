@@ -81,10 +81,14 @@ Pixel ID in all tags.
 4. Select an event and configure its applicable values.
 5. Attach a trigger that fires only after the real action succeeds.
 
-An optional base tag can initialize the Pixel without sending an event. Disable
-event sending and attach an Initialization or All Pages trigger. Event tags can
-also initialize the Pixel themselves; the template prevents duplicate
-`init({pixelId})` calls for the same Pixel ID on a page.
+Every tag loads the SDK and initializes the Pixel before sending its event, so a
+separate base tag is not required; the template prevents duplicate
+`init({pixelId})` calls for the same Pixel ID on a page. The Pixel must still run
+on every page, not only on conversion pages: the SDK reads the click identifier
+`oppref` from the landing page URL and stores it in the `__oppref` cookie, and a
+conversion can only be attributed if that happened. A `page_viewed` tag on All
+Pages covers this and measures the visit; a tag with event sending disabled
+initializes the Pixel without measuring anything.
 
 Do not use a button click as the trigger when it only represents an attempt.
 Fire `order_created` after the order is confirmed and `registration_completed`

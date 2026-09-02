@@ -48,7 +48,7 @@ ___TEMPLATE_PARAMETERS___
         "checkboxText": "Send a measurement event when this tag fires",
         "simpleValueType": true,
         "defaultValue": true,
-        "help": "Leave checked for page view and conversion tags. Clear this for a base tag that only loads and initializes the pixel."
+        "help": "Every tag loads the SDK and initializes the pixel before sending its event, so a separate base tag is not required. Uncheck only to create a tag that initializes the pixel without measuring anything; a page_viewed tag on All Pages does the same and also measures the visit."
       },
       {
         "type": "CHECKBOX",
